@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A template-based lesson plan generator for teachers.">
+  <title>AI Lesson Plan Generator for Teachers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header no-print">
+    <h1>AI Lesson Plan Generator</h1>
+    <p>Enter your lesson details and get a structured starting plan with timings.</p>
+    <p class="demo-note"><strong>Template version:</strong> plans are built from fixed built-in templates in your browser. No live AI model or API is used, so always review and adapt the plan.</p>
+  </header>
+
+  <main>
+    <section class="card no-print" aria-labelledby="form-title">
+      <h2 id="form-title">Lesson details</h2>
+      <form id="plan-form" novalidate>
+        <div class="row">
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" placeholder="e.g. Science" autocomplete="off">
+            <p class="error" id="subject-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="topic">Topic</label>
+            <input id="topic" type="text" placeholder="e.g. The water cycle" autocomplete="off">
+            <p class="error" id="topic-error" hidden></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="level">Student level</label>
+            <select id="level">
+              <option value="primary">Primary (ages 6-11)</option>
+              <option value="middle" selected>Middle school (ages 11-14)</option>
+              <option value="high">High school (ages 14-18)</option>
+              <option value="adult">College / adult learners</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="duration">Lesson duration</label>
+            <select id="duration">
+              <option value="30">30 minutes</option>
+              <option value="45">45 minutes</option>
+              <option value="60" selected>60 minutes</option>
+              <option value="90">90 minutes</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="objectives">Learning objectives</label>
+          <textarea id="objectives" rows="4" placeholder="One per line, e.g.&#10;Describe the stages of the water cycle&#10;Explain why the water cycle matters"></textarea>
+          <p class="hint">Write one objective per line (up to 5).</p>
+          <p class="error" id="objectives-error" hidden></p>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Generate Lesson Plan</button>
+          <button type="button" id="print-btn" class="btn secondary" disabled>Print Plan</button>
+          <button type="button" id="reset-btn" class="btn secondary">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="plan-output" class="card plan" tabindex="-1" aria-live="polite" hidden></section>
+  </main>
+
+  <footer class="site-footer no-print">
+    <p>Template-based demo &middot; MIT License</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
